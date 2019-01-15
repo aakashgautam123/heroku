@@ -1,0 +1,114 @@
+
+doctype
+html
+	head
+		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css", integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO", crossorigin="anonymous")
+		link(rel="stylesheet",href="css/styles.css")
+		script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js", integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN", crossorigin="anonymous")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ,integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", crossorigin="anonymous")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl", crossorigin="anonymous")
+		title="Room"
+		link(rel='apple-touch-icon', sizes='57x57', href='/apple-icon-57x57.png')
+		link(rel='apple-touch-icon', sizes='60x60', href='/apple-icon-60x60.png')
+		link(rel='apple-touch-icon', sizes='72x72', href='/apple-icon-72x72.png')
+		link(rel='apple-touch-icon', sizes='76x76', href='/apple-icon-76x76.png')
+		link(rel='apple-touch-icon', sizes='114x114', href='/apple-icon-114x114.png')
+		link(rel='apple-touch-icon', sizes='120x120', href='/apple-icon-120x120.png')
+		link(rel='apple-touch-icon', sizes='144x144', href='/apple-icon-144x144.png')
+		link(rel='apple-touch-icon', sizes='152x152', href='/apple-icon-152x152.png')
+		link(rel='apple-touch-icon', sizes='180x180', href='/apple-icon-180x180.png')
+		link(rel='icon', type='image/png', sizes='192x192', href='/android-icon-192x192.png')
+		link(rel='icon', type='image/png', sizes='32x32', href='/favicon-32x32.png')
+		link(rel='icon', type='image/png', sizes='96x96', href='/favicon-96x96.png')
+		link(rel='icon', type='image/png', sizes='16x16', href='/favicon-16x16.png')
+		link(rel='manifest', href='/manifest.json')
+		meta(name='msapplication-TileColor', content='#ffffff')
+		meta(name='msapplication-TileImage', content='/ms-icon-144x144.png')
+		meta(name='theme-color', content='#ffffff')
+		
+	body
+		div(class='navigationbar')
+				
+					
+			div(class='menubar')
+				ul
+								
+										
+					li
+							img(src="images/kinder.png",height="50px",onclick="location.href='/profile'")
+					li(class="enabled" ,onclick="location.href='/room'") Rooms
+					li(class="enabled", onclick="location.href='/students'") Students
+					li(class="enabled", onclick="location.href='/parents'") Parents
+					li(class="enabled", onclick="location.href='/staffs'") Staffs
+					li(class="enabled", onclick="location.href='#'") Learning
+					li(class="enabled", onclick="location.href='#'") Billing 
+					li(class="enabled", onclick="location.href='#'") Reports
+					li
+					
+			div(class='dropdown', style="position: absolute; right: 50px; top: 30px;")
+				button(class='btn btn-secondary dropdown-toggle', type='button',id="dropdownMenuButton", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") Settings
+				div(class='dropdown-menu',aria-labelledby="dropdownMenuButton")
+					a(class='dropdown-item',href='/logout') Logout
+					a(class='dropdown-item',href='#',data-toggle='modal',data-target='#myModkal') Password Settings
+					a(class='dropdown-item',href='#') Help and Support
+
+
+
+		div(class='middlebar')
+			h3(style="position:relative;top:44px;left:146px;") Add New Room 
+			button(type='button', class="btn btn-primary ", data-toggle="modal", data-target="#myModal",style='position:absolute;right:0px;float:right') Create New  Room 
+			div(id="myModal", class="modal fade", role="dialog")
+				div(class="modal-dialog")
+					div(class="modal-content")
+						div(class="modal-header")
+							h4 Add New Room
+						div(class="modal-body")
+							form(method='POST', action='/addroom')
+								div(class='update_fields',style="width: 90%;margin: 50px auto")
+									input(type='text',placeholder='Room name',name='room')
+									input(type='submit',value='Add room',name='addroom',class='btn btn-primary',style='color:white')
+						div(class="modal-footer")
+							button(type="button", class="btn btn-default", data-dismiss="modal") Cancel
+		div(class='roomlist')
+
+		h3(style="color:blue;margin-left:150px;",) Room Check 
+
+		hr(style="width:75%")
+		table(class = 'roomtable')
+			tr(class ='roomtr' )
+				th(class='roomth') ROOM
+				th(class='roomth') STUDENTS IN
+				th(class='roomth') STAFF IN
+				th(class='roomth') RATIO
+			each value in data
+				tr(class = 'roomtr' onclick="location.href='/eachroom/'+value.roomId")
+					td(class = 'roomtd')
+						a(href="eachroom/"+value.roomId) #{value.roomName}
+					td(class = 'roomtd') #{value.numstudents}
+					td(class = 'roomtd') #{value.numStaffs}
+					td(class = 'roomtd') #{value.numstudents/value.numStaffs}
+		#myModkal.modal.fade(role='dialog')
+			.modal-dialog
+				// Modal content
+				.modal-content
+					.modal-header
+						
+						h4.modal-title CHANGE PASSWORD
+						button.close(type='button', data-dismiss='modal') ×
+					.modal-body
+						div(style="width: 90%;margin: auto;")
+							form(action='/changepass',method='POST')
+								div(class="update_fields")
+									label(for="currentpassword") CURRENT PASSWORD
+									input(type='password',placeholder='CurrentPassword',name='current_password',id='currentpassword',required)
+								div(class="update_fields")
+									label(for="newpassword") NEW PASSWORD
+									input(type='password',placeholder='NewPassword',name='new_password',id='npass',required)
+								div(class="update_fields")
+									label(for="confirmpassword") CONFIRM PASSWORD
+									input(type='password',placeholder='ConfirmPassword',name='confirm_password',id='cpass',required)
+									div(id='message') | Password not matched
+								input(type='submit',value='Change Password',class='btn btn-info')
+					.modal-footer
+						button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+		script(src='scripts/newpassword.js')

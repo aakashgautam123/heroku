@@ -1,0 +1,237 @@
+doctype
+html
+	head
+		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css", integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO", crossorigin="anonymous")
+		link(rel="stylesheet",href="css/styles.css")
+		script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js", integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN", crossorigin="anonymous")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ,integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", crossorigin="anonymous")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl", crossorigin="anonymous")
+		script(src="scripts/student_update_script.js",type="module")
+		link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.6.3/css/all.css", integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", crossorigin="anonymous")
+				
+		link(href="https://fonts.googleapis.com/css?family=Montserrat",rel="stylesheet")
+		title="Students"
+		link(rel='apple-touch-icon', sizes='57x57', href='/apple-icon-57x57.png')
+		link(rel='apple-touch-icon', sizes='60x60', href='/apple-icon-60x60.png')
+		link(rel='apple-touch-icon', sizes='72x72', href='/apple-icon-72x72.png')
+		link(rel='apple-touch-icon', sizes='76x76', href='/apple-icon-76x76.png')
+		link(rel='apple-touch-icon', sizes='114x114', href='/apple-icon-114x114.png')
+		link(rel='apple-touch-icon', sizes='120x120', href='/apple-icon-120x120.png')
+		link(rel='apple-touch-icon', sizes='144x144', href='/apple-icon-144x144.png')
+		link(rel='apple-touch-icon', sizes='152x152', href='/apple-icon-152x152.png')
+		link(rel='apple-touch-icon', sizes='180x180', href='/apple-icon-180x180.png')
+		link(rel='icon', type='image/png', sizes='192x192', href='/android-icon-192x192.png')
+		link(rel='icon', type='image/png', sizes='32x32', href='/favicon-32x32.png')
+		link(rel='icon', type='image/png', sizes='96x96', href='/favicon-96x96.png')
+		link(rel='icon', type='image/png', sizes='16x16', href='/favicon-16x16.png')
+		link(rel='manifest', href='/manifest.json')
+		meta(name='msapplication-TileColor', content='#ffffff')
+		meta(name='msapplication-TileImage', content='/ms-icon-144x144.png')
+		meta(name='theme-color', content='#ffffff')
+		
+	body
+		#myModkal.modal.fade(role='dialog')
+			.modal-dialog
+				// Modal content
+				.modal-content
+					.modal-header
+						
+						h4.modal-title CHANGE PASSWORD
+						button.close(type='button', data-dismiss='modal') ×
+					.modal-body
+						div(style="width: 90%;margin: auto;")
+							form(action='/changepass',method='POST')
+								div(class="update_fields")
+									label(for="currentpassword") CURRENT PASSWORD
+									input(type='password',placeholder='CurrentPassword',name='current_password',id='currentpassword',required)
+								div(class="update_fields")
+									label(for="newpassword") NEW PASSWORD
+									input(type='password',placeholder='NewPassword',name='new_password',id='npass',required)
+								div(class="update_fields")
+									label(for="confirmpassword") CONFIRM PASSWORD
+									input(type='password',placeholder='ConfirmPassword',name='confirm_password',id='cpass',required)
+									div(id='message') | Password not matched
+								input(type='submit',value='Change Password',class='btn btn-info')
+					.modal-footer
+						button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+		script(src='scripts/newpassword.js')
+		
+		
+
+		div(class='navigationbar')
+				
+					
+			div(class='menubar')
+				ul
+								
+										
+					li
+							img(src="images/kinder.png",height="50px",onclick="location.href='/profile'")
+					li(class="enabled" ,onclick="location.href='/room'") Rooms
+					li(class="enabled", onclick="location.href='/students'") Students
+					li(class="enabled", onclick="location.href='/parent'") Parents
+					li(class="enabled", onclick="location.href='/staffs'") Staffs
+					li(class="enabled", onclick="location.href='#'") Learning
+					li(class="enabled", onclick="location.href='#'") Billing 
+					li(class="enabled", onclick="location.href='#'") Reports
+					li
+			div(class='dropdown', style="position: absolute; right: 50px; top: 30px;")
+					button(class='btn btn-secondary dropdown-toggle', type='button',id="dropdownMenuButton", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") Settings
+					div(class='dropdown-menu',aria-labelledby="dropdownMenuButton")
+							a(class='dropdown-item',href='/logout') Logout
+							a(class='dropdown-item',href='#',data-toggle='modal',data-target='#myModkal') Password Settings
+							a(class='dropdown-item',href='#') Help and Support
+		div()
+														
+			h2(style="margin-top:50px;margin-left:154px;") Total Students 
+				span(class='badge') #{data.length}
+
+		
+				button(class='btn btn-primary',id="addstudent", data-toggle="modal", data-target="#newstudent") Add New Student
+				div(id="newstudent", class="modal fade", role="dialog")
+					div(class="modal-dialog")
+						div(class="modal-content")
+								div(class="modal-header")
+									h4(style="text-align:center;margin:auto;") Add New Student
+										span(class='glyphicon glyphicon-pencil')
+								div(class="modal-body")
+									form(method='POST', action='/addstudent',enctype='multipart/form-data')
+
+										div(style="width: 90%;margin: auto;")
+											div(class="update_fields")
+												label(for="studentName") Name
+												input(type='text',placeholder='Student Name',name='student_name',id='studentName',required)
+											div(class="update_fields")
+												label(for="studentparent") Parent Name
+												input(type='text',placeholder='Parent Name',name='parent_name',id='studentParent', required)
+											div(class="update_fields")
+												label(for="student_edited_parent_email1") Parent Email
+												input(type='email',name='student_edited_parent_email1',id='student_edited_parent_email1',placeholder='parent@example.com')
+											div(class="update_fields")
+												label(for="studentAge") Age
+												select(name='age',style='margin-bottom:20px;', class='form-control',id='studentAge')
+													option(value='2') 2
+													option(value='3') 3
+													option(value='4') 4
+													option(value='5') 5
+													option(value='6') 6
+													option(value='7') 7
+												
+												
+													
+											
+											div(class="update_fields")
+												label(for="studentRoom") Student Name
+												select(name='room',class='form-control',id='studentRoom')
+													each room in list
+														option() #{room.room_name}
+											
+											
+											div(class="update_fields")
+												label(for='photo',id='choosephoto',class='btn btn-outline-dark') Choose Photo
+												input(type='file',name='profile_picture',value='Upload Photo',id='photo')
+											div(class="update_fields")
+												label(for="studentTelephone") Telepohe Number
+												input(type='tel',name='telephone_number',placeholder='(+977)-',id='studentTelephone')
+											input(type='submit',value='Add Student',name='addroom' class='btn btn-primary',style="width:100%;") 
+
+										
+
+			div(id="updatemodal", class="modal fade", role="dialog")
+				div(class="modal-dialog")
+					div(class='modal-content')
+						div(class="modal-body")
+							form(action='/updatestudent',method='POST')
+								div(id='update_header')
+									h2(style="color: #fff;font-family: helvetica;font-size: 30px;padding: 15px 0px !important;margin: 0px 0px 30px 0px;") Student Personal Details
+									div(id="image_container")
+										img(src='',id='student_avatar')
+
+								input(type='hidden',name='studentid',id='stu_id')
+
+								div(style="width: 90%;margin: 50px auto")
+									div(class="update_fields")
+										label(for="student_edited_name") Student Name
+										input(type='text',placeholder="Student Name",id='student_edited_name')
+
+									div(class="update_fields")
+										label(for="student_edited_parent") Parent Name
+										input(type='text',name='student_edited_parent',id='student_edited_parent')
+									
+									div(class="update_fields")
+										label(for="student_edited_parent_email") Parent Email
+										input(type='email',name='student_edited_parent_email',id='student_edited_parent_email')
+
+									div(class="update_fields")
+										label(for="student_edited_age") Age
+										input(type='text',name='student_edited_age',id='student_edited_age')
+
+									div(class="update_fields")
+										label(for="student_edited_tel") Telephone
+										input(type='tel',name='student_edited_tel',id='student_edited_tel')
+
+									div(class="update_fields")
+										label(for="student_edited_dob") DOB
+										input(type='date',name='dob',id='student_edited_dob')
+									div(class="update_fields")
+										label(for="student_edited_address") Address
+										input(type='text',name='address',placeholder='Address',id='student_edited_address')
+									div(class="update_fields")
+										label(for="student_edited_timeIn") Check In Time
+										input(type='time',name='time_in',placeholder='Time_In',id='student_edited_timeIn')
+									div(class="update_fields")
+										label(for="student_edited_timeOut") Check Out Time 
+										input(type='time',name='time_out',placeholder='Time_Out',id='student_edited_timeOut')
+									div(class="update_fields")
+										label(for="student_edited_gender") Gender
+										select(name='gender',id="student_edited_gender",class="form-control")
+											option(value='male') Male
+											option(value='female') Female
+									div(class="update_fields")
+										label(for="student_edited_meal")  Type
+										input(type='text',name='meal_type',placeholder='Enter Meal type',id="student_edited_meal")
+									div(class="update_fields")
+										label(for="student_edited_allergies") Allergies
+										textarea(placeholder='Enter Allergies',cols='30',name='allergies',id='student_edited_allergies')
+									div()
+										input(type='submit',name='update',value='Update',class='btn btn-primary', style='width:100%')
+
+				
+
+			table(style="width:65%;margin-left:154px;margin-top:30px;")
+				tr()
+					th(style="padding-bottom: 30px;") Student Name
+					th(style="padding-bottom: 30px;") Student Age
+					th(style="padding-bottom: 30px;") Parent Name
+					th(style="padding-bottom: 30px;") Profile Pic
+				each value in data
+					tr(class='studentrow')
+						td #{value.student_name}
+						td #{value.student_age}
+						td #{value.student_parent_name}
+						td 
+							img(src=value.student_profile_image,class='profilepicture')
+						td 
+							button(class='btn btn-success updatebutton',id=value.student_id,data-toggle='modal',data-target='#updatemodal') Update 
+								<i class="far fa-edit"></i>
+						td 
+							button(class='btn btn-danger',id=value.student_id,class='deletestudent') Delete 
+								<i class='fas fa-trash'></i>
+						td 	
+							 
+							if !value.invitation_status
+
+								button(class='btn btn-warning invitestudent',id=value.student_parent_email,data-parentName=value.student_parent_name,data-schoolName= schoolName) Invite 
+									<i class='fas fa-envelope'></i> 
+							
+							else if emails.includes(value.student_parent_email)
+								button(class='btn btn-success invitestudent',id=value.student_parent_email,data-parentName=value.student_parent_name,data-schoolName= schoolName) Registered <i class='fas fa-check'></i>
+								 
+							else if value.invitation_status 
+								button(class='btn btn-info invitestudent',id=value.student_parent_email,data-parentName=value.student_parent_name,data-schoolName= schoolName) Invited 
+									<i class='fas fa-check'></i> 
+
+
+					tr(class="spacer")
+							
+

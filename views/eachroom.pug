@@ -1,0 +1,81 @@
+doctype
+html
+	head
+		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css", integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO", crossorigin="anonymous")
+		link(rel="stylesheet",href="/css/styles.css",type="text/css")
+		script(src='/scripts/script.js')
+		script(src="https://code.jquery.com/jquery-3.3.1.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ,integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", crossorigin="anonymous")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl", crossorigin="anonymous")
+		title="Room"
+			
+	body
+		div(class='navigationbar')
+				
+					
+			div(class='menubar')
+				ul
+								
+										
+					li
+						img(src="/images/kinder.png", height="50px",onclick="location.href='/profile'")
+					li(class="enabled" ,onclick="location.href='/room'") Rooms
+					li(class="enabled", onclick="location.href='/students'") Students
+					li(class="enabled", onclick="location.href='/parents'") Parents
+					li(class="enabled", onclick="location.href='/staffs'") Staffs
+					li(class="enabled", onclick="location.href='/underdevelopment'") Learning
+					li(class="enabled", onclick="location.href='/underdevelopment'") Billing 
+					li(class="enabled", onclick="location.href='/underdevelopment'") Reports
+					li
+					
+			div(class='dropdown', style="position: absolute; right: 50px; top: 30px;")
+				button(class='btn btn-secondary dropdown-toggle', type='button',id="dropdownMenuButton", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") Settings
+				div(class='dropdown-menu',aria-labelledby="dropdownMenuButton")
+					a(class='dropdown-item',href='/logout') Logout
+					a(class='dropdown-item',href='#') Password Settings
+					a(class='dropdown-item',href='#') Help and Support
+
+
+			div(class='roominfo')
+				each value in roomdata 
+					p(style="font-family:helvetica;font-size:30px;line-height:70px;margin-left:30px;") #{value.room_name}
+					button(class="btn btn-primary",data-toggle="modal" data-target="#exampleModal",style="float:right;margin-top:-80px;margin-right:15px;") Add New student
+					div(class="modal fade", id="exampleModal", tabindex="-1", role="dialog", aria-labelledby="exampleModalLabel" aria-hidden="true")
+						div(class="modal-dialog")
+							div(class="modal-content")
+								div(class="modal-header")
+									button(type='button' class='btn btn-primary' disabled) New Student
+									button(type='button' class='btn btn-danger') Existing Student
+								div(class="modal-body")
+									ul
+										each value in students
+											li(class="clickable listview",id=value.student_id) 
+												img(src=value.student_profile_image,height='60px',width='60px',style='border-radius:50%') 
+												span(style='margin-left:20px;font-family:helvetica;',id=value.student_id) #{value.student_name}
+								
+								div(clas="modal-footer")
+									button(class="btn btn-success",data-dismiss="modal",style="width:90%;margin:10px;") Insert
+
+			div(class="roomstushowcase")
+				
+				div(class='searchstudent')
+					table(style="width:65%;margin-left:154px;margin-top:30px;")
+						tr
+							th Student Name
+							th Student Profile Image
+							th Actions
+						each item in stud
+							tr(class='studentrow') 
+								td #{item.student_name}
+								td 
+									img(src=item.student_profile_image, class='profilepicture')
+								td 
+									button(class='btn btn-danger removebutton',id=item.student_id) Remove Student
+								td 
+									button(class='btn btn-success') View Profile
+							tr(class="spacer")
+
+
+
+
+	

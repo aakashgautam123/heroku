@@ -1,0 +1,44 @@
+doctype
+html
+	head
+		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css", integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO", crossorigin="anonymous")
+		link(rel="stylesheet",href="css/styles.css")
+		script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js", integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN", crossorigin="anonymous")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ,integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", crossorigin="anonymous")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl", crossorigin="anonymous")
+		script(src="scripts/student_update_script.js",type="module")
+		link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.6.3/css/all.css", integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", crossorigin="anonymous")
+				
+		link(href="https://fonts.googleapis.com/css?family=Montserrat",rel="stylesheet")
+		title="Parents"
+
+		
+	body
+		
+
+		div(class='navigationbar')
+				
+					
+			div(class='menubar')
+				ul
+								
+										
+					li
+							img(src="images/kinder.png",height="50px",onclick="location.href='/profile'")
+					li(class="enabled" ,onclick="location.href='/room'") Rooms
+					li(class="enabled", onclick="location.href='/students'") Students
+					li(class="enabled", onclick="location.href='/parent'") Parents
+					li(class="enabled", onclick="location.href='/staffs'") Staffs
+					li(class="enabled", onclick="location.href='#'") Learning
+					li(class="enabled", onclick="location.href='#'") Billing 
+					li(class="enabled", onclick="location.href='#'") Reports
+					li
+			div(class='dropdown', style="position: absolute; right: 50px; top: 30px;")
+					button(class='btn btn-secondary dropdown-toggle', type='button',id="dropdownMenuButton", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") Settings
+					div(class='dropdown-menu',aria-labelledby="dropdownMenuButton")
+							a(class='dropdown-item',href='/logout') Logout
+							a(class='dropdown-item',href='#') Password Settings
+							a(class='dropdown-item',href='#') Help and Support
+			div()
+				center
+					h2 Under Construction !!!

@@ -1,0 +1,120 @@
+html
+    head
+        title SIGN UP
+        style(type='text/css').
+
+            *{
+                margin:0px;
+                padding:0px;
+            }
+            body{
+                background-size: cover; background-position: center; background-image: url(../wp-content/uploads/2018/07/DKP_9881-e1531533090150-1563x1100-1-1563x1100.jpg)!important;
+                
+            }
+            .spacer{
+                margin-bottom:20px;
+            }
+           input{
+               width:300px;
+            padding: 20px;
+               position:relative;
+               border:2px solid #e1e1e1;
+               border-radius:4px;
+           }
+           input::placeholder{
+               color:silver;
+               position:relative;
+               left:20px;
+           }
+           .containerform{
+               width:70%;
+               margin:30px auto;
+               box-shadow:0px 10px 40px rgba(0,0,0,0.2);
+               background:white;
+               opacity:0.9;
+               
+
+           }
+           .containerform h2{
+               color: white;
+               background: #79a6c7;
+               padding: 40px;
+               font-weight: bold;
+               font-size: 40px;
+                
+           }
+           label{
+              
+               font-weight:bold;
+               font-size:20px;
+           }
+           .info{
+               text-align:left;
+               color:silver;
+           }
+           input[type='submit']
+           {
+               background-color:#79a6c7;
+               border-radius:4px;
+               color:white;
+               border:1px solid #79a6c7;
+               font-size:20px;
+               margin-bottom:10px;
+           }
+
+            .ctr {
+                padding: 20px 40px;
+            }
+            
+            #message {
+                color: #a1a1a1;
+                font-family: "helvetica";
+                padding-left: 10px;
+                border-left: 2px solid #79a6c7;
+            }
+           
+        
+
+                
+                
+            
+        link(rel="stylesheet" ,href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
+    body
+        div(class='containerform')
+            form(action="/signup",method="POST")
+                h2(class='title') CREATE YOUR SCHOOL
+
+                div(class='ctr')
+                    div(class='info')
+                        label(for="resetcode") SCHOOL NAME
+
+                    input(type="text",name='schoolname',placeholder='Enter School Name',class=' spacer' ,id="resetcode")
+                    div(class='info')
+                        label(for="resetcode") EMAIL
+                    
+                    input(type="email",name='email',placeholder='School Email',class=' spacer')
+                    div(class='info')
+                        label(for="establisheddate") ESTABLISHED DATE
+                    
+                    input(type="date" ,name="establisheddate" ,placeholder='Established Date',class=' spacer',id='establisheddate')
+                    div(class='info')
+                        label(for="establisheddate") NUMBER OF STUDENTS
+                    
+                    input(type="number" ,name="numberofstudents" ,placeholder='Number of Students',class=' spacer',id='studentnumber')
+
+                    div(class='info')
+                        label(for="location") LOCATION
+                    
+                    input(type="text" ,name="location" ,placeholder='Location',class=' spacer',id='location')
+
+                    div(class='info')
+                        label(for="desiredpassword") DESIRED  PASSWORD
+                    
+                    div(style="display: flex;justify-content: space-between")
+                        div
+                            input(type="password",name="password",placeholder='Desired Password',class=' spacer',id='desiredpassword')
+                            div(id='message') Kinder
+                        div
+                            input(type="submit",name='submit',value='Request Account')
+
+        script(src='scripts/newpassword.js')

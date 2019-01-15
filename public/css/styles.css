@@ -1,0 +1,470 @@
+
+*
+{
+	font-family: 'Montserrat', sans-serif;
+}
+form
+{
+}
+textarea
+{
+	border: none;
+}
+textarea:focus
+{
+	border:none;
+	outline: none;
+}
+/*input
+{
+	display: block;
+	
+	height:40px;
+	width:100%;
+	margin-bottom:30px;
+	font-size:14px;
+	outline:none;
+	border:none;
+	border-bottom:2px solid #e1e1e1;
+}
+*/input:focus
+{
+	border-bottom:2px solid #888;
+}
+
+
+#kinderlogo
+{
+	height:200px;
+	width:200px;
+	
+}
+
+
+h2
+{
+	color:grey;
+	font-family: helvetica;
+	font-size:30px
+}
+form
+{
+	margin:auto;
+}
+.resetbutton
+{
+	background-color:#4B382A;
+	color:white;
+	border:1px solid #4B382A;
+}
+input[type='submit']
+{
+	
+	color:white;
+	border: transparent;
+	margin-top:20px;
+	margin-bottom:10px;
+}
+a
+{
+float: right;
+margin-top:-20px;
+margin-left:-10px;
+}
+.navigationbar
+{
+	width:100%;
+	padding: 10px 0px;
+	background: white;
+	box-shadow: 0px 3px 14px rgba(0,0,0,0.2);
+	
+}
+.noticeboard
+{
+	height:30px;
+	width:inherit;
+	background:linear-gradient(to right, #ff9966, #ff5e62);
+	text-align:center;
+}
+.noticeboard p 
+{
+	color:white;
+
+}
+.menubar {
+	width: 80%;
+	margin: auto;
+}
+.menubar ul {
+	display: flex;
+	list-style: none;
+	align-items: center;
+}
+.menubar ul li a
+{
+	text-decoration: none;
+}
+.menubar ul li
+{
+	flex: 1;
+	padding: 10px;
+	color:#666;
+	font-size:20px;
+	cursor: pointer;
+	position: relative;
+	transition: color 0.3s;
+}
+
+.menubar ul li:hover {
+	color: #1AA;
+}
+
+.menubar ul li.enabled::after {
+	position: absolute;
+	content: '';
+	width: 0%;
+	height: 4px;
+	left: 0;
+	bottom: 6px;
+	background: #1AA;
+	transition: width 0.4s;
+}
+
+.menubar ul li.enabled:hover::after {
+	width: 100%;
+}
+
+
+
+
+
+.menubar
+{
+		text-align: center;
+}
+.dropdown
+{
+	margin-left:200px;
+}
+.banner
+{
+	height: 300px;
+	width: 100%;
+	
+	background: linear-gradient(to bottom, #00d2ff, #928dab);
+	text-align:center;
+	color:white;
+}
+.welcome  p
+{
+	position: relative;
+    top: 43px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.cards
+{
+	height:100px;
+	width:150px;
+	border:1px solid #5495cf;
+	background-color: #5495cf;
+	box-shadow: 1px 1px 8px #5495ff ;
+	margin-left:30px;
+	margin-top:62px;
+}
+.banner .cards
+{
+		display:inline-block;
+
+}
+.cards 
+{
+	font-size:20px;
+}
+.cards span,p
+{
+	position: relative;
+	top:20px;
+}
+.middlebar
+{
+	height:120px;
+	width:100%;
+	background:blue;
+	
+
+}
+.middlebar h3
+{
+	color: white;
+}
+.middlebar button
+{
+	float: right;
+}
+.middlebar input
+{
+	border: transparent;
+	border-bottom:1px solid blue;
+}
+.middlebar input:focus
+{
+	border:transparent;
+	border-bottom:2px solid blue;
+	outline: none;
+}
+.roomlist
+{
+	text-align:center;
+
+}
+.roomlist table tr:first-child
+{
+	background:#ebeff4;
+	height:50px;
+	
+
+}
+.roomlist table
+{
+	width:75%;
+	margin-left:15%;
+
+}
+
+#addstudent
+{
+	float:right;
+	margin-bottom: 10px;
+	margin-right:20px;
+}
+.profilepicture
+{
+	height: 70px;
+	width:70px;
+	border-radius:50%;
+}
+.roominfo{
+height:80px;
+width:100%;
+
+	}
+
+.roomstushowcase
+{
+width:100%;
+
+
+}
+.menupanel
+{
+width:100%;
+height:50px;
+background:silver;
+}
+.menupanel ul li 
+
+{
+	display:inline-block;
+	margin-left:15px;
+	padding:15px;
+	margin-top:5px;
+	font-size:20px;
+	color:white;
+	margin-top:-10px;
+
+
+}
+.menupanel ul:firstChild{
+	color:blue;
+}
+
+.searchstudent
+{
+	
+	font-family: 'Montserrat', sans-serif;
+}
+
+.listview
+{
+	
+	list-style: none;
+	transition: all 0.3s ease;
+
+}
+.listview:hover
+{
+	background-color:silver;
+	cursor:pointer;
+}
+.listview:active
+{
+	background-color:lightblue;
+}
+
+.spacer
+{
+	height:20px;
+}
+.studentrow{
+	transition: transform 0.3s ease, box-shadow 0.3s;
+	cursor: pointer;
+	padding: 10px 0px;
+}
+.studentrow:hover
+{
+	transform: scale(1.05);
+	box-shadow: 0px 3px 8px rgba(0,0,0,0.2);
+}
+table
+{
+	font-family: 'Montserrat', sans-serif;
+
+}
+table tr td
+{
+	padding :10px;
+}
+#choosephoto
+{
+
+	margin-top:15px;
+
+}
+#photo
+{
+	visibility:hidden;
+}
+.badge
+{
+	background-color:grey;
+	color:white;
+	border-radius:50%;
+}
+
+.editlabel
+{
+	font-weight:bold;
+	color:#444;
+
+}
+
+.update_fields {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 10px;
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+	border-radius: 5px;
+	margin-bottom: 20px;
+	border: 1px solid #f1f1f1;
+	transition: box-shadow 0.2s, transform 0.2s;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+.update_fields:hover {
+	box-shadow: 0px 6px 16px rgba(0,0,0,0.3);
+	transform: scale(1.05);
+}
+
+.update_fields input {
+	display: block;
+	flex: 1;
+	border: none;
+	padding: 0;
+	padding: 10px 10px;
+	color: #666;
+	border: 1px solid #f1f1f1;
+	border-radius: 5px;
+	transition: box-shadow 0.2s;
+}
+
+.update_fields input:focus {
+	box-shadow: 0px 0px 6px rgba(50,200,200,0.4);
+}
+
+.update_fields label {
+	display: block;
+	flex: 1;
+	font-weight: 600;
+	color: #666;
+}
+.modal-body {
+	box-shadow: 0px 0px 16px rgba(0,0,0,0.3) !important;	
+	padding: 0 !important;
+}
+#image_container {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	overflow: hidden;
+	padding-top: 20px;
+	margin: auto;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%) translateY(50%);
+	bottom: 0;
+	border: 10px solid #fff;
+}
+#image_container img 
+{
+	width: 100%;
+	transform: scale(1.8);
+}
+#update_header
+{
+	margin-bottom: 20px;
+	background: #16C;
+	height: 160px;
+	position: relative;
+	padding-left: 30px;
+}
+.dropdown-menu  a 
+{
+	margin-top:0px;
+
+}
+
+
+.roomtable {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 50px auto;
+}
+
+.roomtable .roomtr, .roomtd, .roomth {
+  padding: 20px;
+}
+
+.roomtr:nth-child(odd) {
+   background: #f1f1f1; 
+}
+
+.roomtr:nth-child(1) {
+  background: #16C;
+  color: #fff;
+}
+
+.roomth {
+	text-align: center;
+}
+
+.roomtr {
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.roomtd {
+  text-align: center;
+}
+.roomtr .roomtd:nth-child(1) a {
+  width: 100%;
+  display: block;
+  padding-top: 15px;
+}
+
+.changepassword
+{
+	padding:10px;
+	
+}

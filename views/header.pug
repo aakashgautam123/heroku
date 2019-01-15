@@ -1,0 +1,28 @@
+html
+	head
+
+	body
+		block header
+			div(class='navigationbar')
+							
+								
+						div(class='menubar')
+							ul
+											
+													
+								li
+										img(src="images/kinder.png",height="50px")
+								li(class="enabled") Rooms
+								li(class="enabled") Students
+								li(class="enabled") Parents
+								li(class="enabled") Staffs
+								li(class="enabled") Learning
+								li(class="enabled") Billing 
+								li(class="enabled") Reports
+								li
+						div(class='dropdown', style="position: absolute; right: 50px; top: 30px;")
+								button(class='btn btn-secondary dropdown-toggle', type='button',id="dropdownMenuButton", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") Settings
+								div(class='dropdown-menu',aria-labelledby="dropdownMenuButton")
+										a(class='dropdown-item',href='/logout') Logout
+										a(class='dropdown-item',href='#') Password Settings
+										a(class='dropdown-item',href='#') Help and Support
